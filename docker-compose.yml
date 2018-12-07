@@ -1,0 +1,13 @@
+version: '2'
+services:
+   api:
+      build: .
+      image: handaioh/hint_flask
+      container_name: "handaioh_hintAPI"
+      ports:
+         - "15000:8080"
+      volumes:
+         - "./app:/app:ro"
+      restart: always
+      tty: true
+
