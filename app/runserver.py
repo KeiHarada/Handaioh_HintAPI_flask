@@ -3,6 +3,7 @@ from flask import Flask, request, make_response, jsonify
 from neo4jrestclient.client import GraphDatabase
 import sys
 import functools
+from pprint import pprint
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -12,36 +13,48 @@ gdb = GraphDatabase(url)
 def get_index():
     return "API test page"
 
-def get_hint_top(self, node):
-    query = "MATCH (:DBpedia{name:\""+ node +"\"})-[h:hint{rank:\"1\"}]->(to:DBpedia) RETURN h.hint;"
+def get_hint_top(node):
+    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint{rank:\"1\"}]->(:DBpedia) RETURN h;"
+    print(query)
     results = gdb.query(query).get_response()
-    return str2json(results)
+    print(results)
+    return str2json(results, node)
 
 def get_hint_all(node):
-    query = "MATCH (:DBpedia{name:\""+ node +"\"})-[h:hint]->(to:DBpedia) RETURN h;"
+    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint]->(:DBpedia) RETURN h;"
     results = gdb.query(query).get_response()
-    return str2json(results)
+    return str2json(results, node)
 
 def get_hint_rank(node, rank):
-    query = "MATCH (:DBpedia{name:\""+ node +"\"})-[h:hint{rank:\""+str(rank)+"\"}]->(to:DBpedia) RETURN h;"
+    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint]->(:DBpedia) WHERE h.rank<=\""+str(rank)+"\" RETURN h;"
     results = gdb.query(query).get_response()
-    return str2json(results)
+    return str2json(results, node)
 
-def str2json(string):
+def str2json(string, node):
+
+    pprint(string)
+
     results = "{\n"
+    results += "\t\"seikai\":\"" + node + "\",\n"
     results += "\t\"count\":" + str(len(string["data"])) + ",\n"
     results += "\t\"results\":[\n"
-    for item in string["data"]:
-        for fact in item:
-            if len(fact["data"]) != 0:
-                results += "\t\t{\n"
-                for att in fact["data"].items():
-                    k, v = att
-                    results += "\t\t\t\""+k+"\":\""+v+"\",\n"
-                results = results[:-2]
-                results += "\n\t\t},\n"
-    results = results[:-2]
-    results += "\n\t]\n}"
+
+    if len(string["data"]) == 0:
+        results = results[:-1]
+        results += "]\n"
+    else:
+        for item in string["data"]:
+            for fact in item:
+                if len(fact["data"]) != 0:
+                    results += "\t\t{\n"
+                    for att in fact["data"].items():
+                        k, v = att
+                        results += "\t\t\t\""+k+"\":\""+v+"\",\n"
+                    results = results[:-2]
+                    results += "\n\t\t},\n"
+        results = results[:-2]
+        results += "\n\t]"
+    results += "\n}"
     return results
 
 def usrpswd(usr, pswd):
