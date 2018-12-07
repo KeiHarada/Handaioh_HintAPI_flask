@@ -10,5 +10,6 @@ WORKDIR /app
 EXPOSE 8080
 COPY docker-entrypoint.sh /
 RUN chmod 755 /docker-entrypoint.sh
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 

@@ -8,6 +8,10 @@ services:
          - "15000:8080"
       volumes:
          - "./app:/app:ro"
+      environment:
+         - NEO4J_USER=neo4j
+         - NEO4J_PASS=handa1oh
+         - NEO4J_HOST=bd-ensyu.ist.osaka-u.ac.jp
       restart: always
       tty: true
 
