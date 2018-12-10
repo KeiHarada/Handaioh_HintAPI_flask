@@ -3,9 +3,11 @@ from flask import Flask, request, make_response, jsonify
 from neo4jrestclient.client import GraphDatabase
 import sys
 import functools
+from flask_cors import CORS
 from pprint import pprint
 
 app = Flask(__name__)
+CORS(app)
 app.config['JSON_AS_ASCII'] = False
 url = "http://" + sys.argv[1] + ":" + sys.argv[2] + "@" + sys.argv[3] +":7474/db/data/"
 gdb = GraphDatabase(url)
@@ -15,9 +17,7 @@ def get_index():
 
 def get_hint_top(node):
     query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint{rank:\"1\"}]->(:DBpedia) RETURN h;"
-    print(query)
     results = gdb.query(query).get_response()
-    print(results)
     return str2json(results, node)
 
 def get_hint_all(node):
@@ -31,8 +31,6 @@ def get_hint_rank(node, rank):
     return str2json(results, node)
 
 def str2json(string, node):
-
-    pprint(string)
 
     results = "{\n"
     results += "\t\"seikai\":\"" + node + "\",\n"
@@ -72,22 +70,22 @@ def usrpswd(usr, pswd):
 
 
 @app.route('/')
-@usrpswd(sys.argv[1], sys.argv[2])
+#@usrpswd(sys.argv[1], sys.argv[2])
 def index():
     return get_index()
 
 @app.route("/api/hint_top/<node>", methods=['GET'])
-@usrpswd(sys.argv[1], sys.argv[2])
+#@usrpswd(sys.argv[1], sys.argv[2])
 def hint_top(node):
     return get_hint_top(node)
 
 @app.route("/api/hint_all/<node>", methods=['GET'])
-@usrpswd(sys.argv[1], sys.argv[2])
+#@usrpswd(sys.argv[1], sys.argv[2])
 def hint_all(node):
     return get_hint_all(node)
 
 @app.route("/api/hint_rank/<node>&<rank>", methods=['GET'])
-@usrpswd(sys.argv[1], sys.argv[2])
+#@usrpswd(sys.argv[1], sys.argv[2])
 def hint_rank(node, rank):
     return get_hint_rank(node, rank)
 

@@ -2,7 +2,7 @@
 import requests
 import sys
 
-url = 'http://127.0.0.1:8080/api/hint_all/'
+url = 'http://bd-ensyu.ist.osaka-u.ac.jp/api/hint_all/'
 node = "欧州連合"
 headers = {"username": sys.argv[1], "password": sys.argv[2]}
 req = requests.get(url+node, headers=headers)
