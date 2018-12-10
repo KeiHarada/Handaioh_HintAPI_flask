@@ -47,7 +47,7 @@ def str2json(string, node):
                     results += "\t\t{\n"
                     for att in fact["data"].items():
                         k, v = att
-                        results += "\t\t\t\""+k+"\":\""+v+"\",\n"
+                        results += "\t\t\t\""+str(k)+"\":\""+str(v)+"\",\n"
                     results = results[:-2]
                     results += "\n\t\t},\n"
         results = results[:-2]
