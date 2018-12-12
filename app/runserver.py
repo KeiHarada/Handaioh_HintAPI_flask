@@ -16,7 +16,7 @@ def get_index():
     return "API test page"
 
 def get_hint_top(node):
-    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint{rank:\"1\"}]->(:DBpedia) RETURN h;"
+    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint{rank:1}]->(:DBpedia) RETURN h;"
     results = gdb.query(query).get_response()
 
     return str2json(results, node)
@@ -26,8 +26,9 @@ def get_hint_all(node):
     results = gdb.query(query).get_response()
     return str2json(results, node)
 
+
 def get_hint_rank(node, rank):
-    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint]->(:DBpedia) WHERE h.rank<=\""+str(rank)+"\" RETURN h;"
+    query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint]->(:DBpedia) WHERE h.rank<="+str(rank)+" RETURN h;"
     results = gdb.query(query).get_response()
     return str2json(results, node)
 

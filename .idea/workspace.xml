@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daadde01-8d76-48f2-9af6-80b18e90572c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/exec.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/exec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/runserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/runserver.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/HintAPI$run.coverage" NAME="run Coverage Results" MODIFIED="1544577642059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/HintAPI$run.coverage" NAME="run Coverage Results" MODIFIED="1544583660037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/HintAPI$exec.coverage" NAME="exec Coverage Results" MODIFIED="1544490967041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -41,13 +41,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="py" value="3263" />
+          <entry key="py" value="3265" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="3263" />
+          <entry key="Python" value="3265" />
         </counts>
       </usages-collector>
     </session>
@@ -57,11 +57,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/runserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="330">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#16#72#0" expanded="true" />
-                <marker date="1544577775011" expanded="true" signature="1403:1871" ph="..." />
+                <marker date="1544583659881" expanded="true" signature="1395:1863" ph="..." />
               </folding>
             </state>
           </provider>
@@ -114,11 +114,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="1699" />
-    <option name="y" value="143" />
-    <option name="width" value="1861" />
-    <option name="height" value="789" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="49" />
+    <option name="y" value="25" />
+    <option name="width" value="1871" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -228,14 +228,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1699" y="143" width="1861" height="789" extended-state="1" />
+    <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14451186" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14371915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48176292" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22510822" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4426407" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -284,11 +285,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/runserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="330">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#16#72#0" expanded="true" />
-            <marker date="1544577775011" expanded="true" signature="1403:1871" ph="..." />
+            <marker date="1544583659881" expanded="true" signature="1395:1863" ph="..." />
           </folding>
         </state>
       </provider>
