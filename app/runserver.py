@@ -18,6 +18,7 @@ def get_index():
 def get_hint_top(node):
     query = "MATCH (:DBpedia{dbpedia:\""+ node +"\"})-[h:hint{rank:\"1\"}]->(:DBpedia) RETURN h;"
     results = gdb.query(query).get_response()
+
     return str2json(results, node)
 
 def get_hint_all(node):
@@ -32,27 +33,14 @@ def get_hint_rank(node, rank):
 
 def str2json(string, node):
 
-    results = "{\n"
-    results += "\t\"seikai\":\"" + node + "\",\n"
-    results += "\t\"count\":" + str(len(string["data"])) + ",\n"
-    results += "\t\"results\":[\n"
-
-    if len(string["data"]) == 0:
-        results = results[:-1]
-        results += "]\n"
-    else:
-        for item in string["data"]:
-            for fact in item:
-                if len(fact["data"]) != 0:
-                    results += "\t\t{\n"
-                    for att in fact["data"].items():
-                        k, v = att
-                        results += "\t\t\t\""+str(k)+"\":\""+str(v)+"\",\n"
-                    results = results[:-2]
-                    results += "\n\t\t},\n"
-        results = results[:-2]
-        results += "\n\t]"
-    results += "\n}"
+    results = dict()
+    results["seikai"] = node
+    results["count"] = str(len(string["data"]))
+    results["results"] = list()
+    for item in string["data"]:
+        for fact in item:
+            results["results"].append(fact["data"])
+    results = jsonify(results)
     return results
 
 def usrpswd(usr, pswd):
